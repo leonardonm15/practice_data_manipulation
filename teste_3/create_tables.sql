@@ -1,6 +1,5 @@
-CREATE DATABASE relatorios; # DELETA ISSO ANTES DE MANDAR
+CREATE DATABASE relatorios;
 USE relatorios;
-DROP TABLE infos_op, financeiro_op; # DELETA ISSO ANTES DE MANDAR
 
 CREATE TABLE IF NOT EXISTS infos_op(
     registro INT NOT NULL,
@@ -28,6 +27,6 @@ CREATE TABLE IF NOT EXISTS infos_op(
     data_financeiro VARCHAR(10) DEFAULT 0.0,
     registro INT NOT NULL,
     conta_contabil INT NOT NULL,
-    descricao VARCHAR(255) CHARSET LATIN1,
-    saldo_final VARCHAR(255) NOT NULL DEFAULT '0.00',
+    descricao VARCHAR(255),
+    saldo_final DECIMAL(18, 2),
 	FOREIGN KEY (registro) REFERENCES infos_op(registro));
