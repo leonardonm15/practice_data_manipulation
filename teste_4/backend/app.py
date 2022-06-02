@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 import pandas as pd
 
 file_path = r'C:\data\Relatorio_cadop teste 4.csv'
@@ -14,7 +15,7 @@ cols  = df.columns
 df.columns = cols.map(lambda x: x.replace(' ', '_') if isinstance(x, (str)) else x) #remove the bad characters from the columns names
 
 app = Flask(__name__)
- 
+CORS(app)
 
 # whenever it recieves the input by the url it searches the finds strings which the substring op_name is contained
 @app.route('/get/<string:op_name>', methods = ['GET'])
