@@ -21,9 +21,9 @@ CORS(app)
 @app.route('/get/<string:op_name>', methods = ['GET'])
 def get_names(op_name):
     op_name = op_name.upper()
-    df2 = df.loc[df['Razão_Social'].str.contains(op_name)].head()
+    df2 = df.loc[df['Razão_Social'].str.contains(op_name)].head() # gets the top 5
     df2 = df2['Razão_Social']
     return df2.to_dict()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
